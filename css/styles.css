@@ -1,0 +1,74 @@
+body{
+  font-family: open sans;
+  font-size: 18px;
+  font-weight:400;
+  color:#555;
+}
+
+a{
+  color:#555;
+}
+
+p{
+  margin-bottom:1em;
+}
+
+p span{
+  font-size:1.35em;
+  font-weight:300;
+}
+h1{
+  font-family:"Slabo 13px";
+  font-size:2em;
+}
+
+h1, h2, h3, h4{
+  margin-bottom:0;
+}
+
+table{
+  width: 100%;
+}
+
+th{
+  background-color: #CCC;
+  font-weight:500;
+}
+
+td{
+  border-bottom: 1px solid #DDD;
+  padding:2px 5px;
+}
+
+.header{
+  margin-bottom:0;
+}
+.content{
+  padding:10px 30px;
+}
+
+.text-right{
+  text-align: right;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.league-leader{
+  font-weight:700;
+  color:#000;
+}
+
+.switch{
+  background-color: #555;
+  color: #FFF;
+  text-decoration: none;
+  padding: 5px 15px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.switch:hover{
+  background-color:#888;
+}
