@@ -1,6 +1,6 @@
 [
   {
-    "siteTitle": "Your Website Title",
+    "site_title": "Your Website Title",
     "consumer_key": "Your Yahoo Developer Consumer Key",
     "consumer_secret": "Your Yahoo Developer Consumer Secret",
     "game_key": 352

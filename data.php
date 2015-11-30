@@ -54,7 +54,7 @@ usort($newTeam, function($a, $b) {
     return $a['points'] < $b['points']?1:-1;
 });
 
-$data['title']    = $config[0]->siteTitle;
+$data['title']    = $config[0]->site_title;
 $data['teams']    = $newTeam;
 $data['leader']   = $newTeam[0];
 $data['leagues']  = $league_names;
