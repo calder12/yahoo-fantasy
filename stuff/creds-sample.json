@@ -1,0 +1,24 @@
+[
+  {
+    "siteTitle": "Your Website Title",
+    "consumer_key": "Your Yahoo Developer Consumer Key",
+    "consumer_secret": "Your Yahoo Developer Consumer Secret",
+    "game_key": 352
+  },
+  {
+    "leagues":[
+      60619,
+      63377,
+      69073,
+      63394
+    ]
+  },
+  {
+    "colours":[
+      "#F6CDE6",
+      "#FFE5BC",
+      "#DDF9D9",
+      "#ADD9FE"
+    ]
+  }
+]

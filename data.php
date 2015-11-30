@@ -1,7 +1,6 @@
 <?php 
-require("stuff/OAuth.php");  
-$string = file_get_contents('stuff/creds.json');
-$config = json_decode($string);
+require("stuff/OAuth.php");
+$config = json_decode(file_get_contents('stuff/creds.json'));
 
 $leagues = $config[1]->leagues;
 
@@ -9,7 +8,7 @@ $newTeam = array();
 $i = 0;
 $j = 0;
 foreach($leagues as $league){
-  $url = 'http://fantasysports.yahooapis.com/fantasy/v2/league/352.l.'.$league.'/standings';  
+  $url = 'http://fantasysports.yahooapis.com/fantasy/v2/league/'.$config[0]->game_key.'.l.'.$league.'/standings';  
   $args = array();  
   $args["q"] = "yahoo";  
   $args["format"] = "json";  
