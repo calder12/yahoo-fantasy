@@ -1,5 +1,6 @@
 <?php  
 require("data.php"); 
+$i=1;
 ?>
 <!doctype html>
 
@@ -38,6 +39,7 @@ require("data.php");
         </p>
         <table>
           <tr>
+          <th></th>
             <th>User</th>
             <th>Record (w-l-t)</th>
             <th>Points</th>
@@ -52,6 +54,7 @@ require("data.php");
               $league     = '<a target="_blank" href="http://hockey.fantasysports.yahoo.com/hockey/'.$team['league_id'].'">'.$team['league'].'</a>';
               $user       = '<a target="_blank" href="http://hockey.fantasysports.yahoo.com/hockey/'.$team['league_id'].'/'.$team['id'].'">'.$team['name'].'</a>';
               $table_row  = '<tr style="background-color:'.strtolower($team['bkcolour']).'" class="'.strtolower($team['league']).$leader2.' team-row">';
+              $table_row .= '<td class="text-right">'.$i.'.</td>';
               $table_row .= '<td'.$leader.'>'.$user.'</td>';
               $table_row .= '<td class="text-center">'.$team['wins']. ' - '.$team['losses']. ' - '.$team['ties'].'</td>';
               $table_row .= '<td class="text-right">'.$team['points'].'</td>';
@@ -59,6 +62,7 @@ require("data.php");
               $table_row .= '<td class="text-center">'.$league.'</td>';
               $table_row .= '</tr>';
               echo $table_row;
+              $i++;
             }
           ?>
         </table>
