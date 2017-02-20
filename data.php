@@ -24,7 +24,6 @@ foreach($leagues as $league){
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);  
   $rsp = curl_exec($ch);  
   $results = json_decode($rsp);  
-
   $teams = $results->fantasy_content->league[1]->standings[0]->teams;
 
   $league_names[$j] = str_replace('TwentyBucks-', '', $results->fantasy_content->league[0]->name);
@@ -41,6 +40,7 @@ foreach($leagues as $league){
     array('McDavid - Eichel', 'eichel'),
     array('McDavid - Panarin', 'panarin'),
   );
+  $data['conferences'] = array('Marner', 'McDavid');
 
   foreach($teams as $team){
     if(isset($team->team[0][2]->name)){
@@ -59,21 +59,25 @@ foreach($leagues as $league){
         $newTeam[$i]['bkcolour']    = '#57BCD9';
         $newTeam[$i]['division_name'] = $data['divisions'][0][0];
         $newTeam[$i]['division'] = $data['divisions'][0][1];
+        $newTeam[$i]['conference'] = $data['conferences'][0];
       }
       if($currentLeague == 18156 && in_array($team->team[0][1]->team_id, $division2)) {
         $newTeam[$i]['bkcolour']    = '#72FE95';
         $newTeam[$i]['division_name'] = $data['divisions'][1][0];
         $newTeam[$i]['division'] = $data['divisions'][1][1];
+        $newTeam[$i]['conference'] = $data['conferences'][0];
       }
       if($currentLeague == 30523 && in_array($team->team[0][1]->team_id, $division3)) {
         $newTeam[$i]['bkcolour']    = '#C4ABFE';
         $newTeam[$i]['division_name'] = $data['divisions'][2][0];
         $newTeam[$i]['division'] = $data['divisions'][2][1];
+        $newTeam[$i]['conference'] = $data['conferences'][1];
       }
       if($currentLeague == 30523 && in_array($team->team[0][1]->team_id, $division4)) {
         $newTeam[$i]['bkcolour']    = '#FFCECE';
         $newTeam[$i]['division_name'] = $data['divisions'][3][0];
         $newTeam[$i]['division'] = $data['divisions'][3][1];
+        $newTeam[$i]['conference'] = $data['conferences'][1];
       }
       
       $i++;

@@ -35,6 +35,9 @@ $i=1;
             foreach($data['divisions'] as $division){
               echo '<a href="#" class="switch" id="'.strtolower($division[1]).'">'.$division[0].'</a> ';
             }
+            foreach( $data['conferences'] as $conference ) {
+              echo '<a href="#" class="switch" id="'.strtolower($conference).'">'.$conference.'</a> ';
+            }
           ?>
         </p>
         <table>
@@ -54,7 +57,7 @@ $i=1;
               $leader2    = $team['league_rank'] == 1 ? ' leader' : '';
               $league     = '<a target="_blank" href="http://hockey.fantasysports.yahoo.com/hockey/'.$team['league_id'].'">'.$team['league'].'</a>';
               $user       = '<a target="_blank" href="http://hockey.fantasysports.yahoo.com/hockey/'.$team['league_id'].'/'.$team['id'].'">'.$team['name'].'</a>';
-              $table_row  = '<tr style="background-color:'.strtolower($team['bkcolour']).'" class="'.strtolower($team['division']).$leader2.' team-row">';
+              $table_row  = '<tr style="background-color:'.strtolower($team['bkcolour']).'" class="'. strtolower($team['conference']). ' ' .strtolower($team['division']).$leader2.' team-row">';
               $table_row .= '<td class="text-right">'.$i.'.</td>';
               $table_row .= '<td'.$leader.'>'.$user.'</td>';
               $table_row .= '<td class="text-center">'.$team['wins']. ' - '.$team['losses']. ' - '.$team['ties'].'</td>';
@@ -74,13 +77,27 @@ $i=1;
   <script>
   $('.switch').on('click', function(e){
     e.preventDefault();
-    var trigger = $(this).attr('id');
+    $('.switch').removeClass('active');
+    $(this).addClass('active');
+    var trigger = $(this).attr('id').toLowerCase();
     console.log(trigger)
     if(trigger != 'all'){
       $('.team-row').hide();
+      var counter = 0;
       $('.team-row').each(function(){
         if($(this).hasClass(trigger)){
           $(this).show();
+          if( trigger == 'marner' || trigger == 'mcdavid' ) {
+            if(counter <= 5) {
+              $(this).addClass('active');
+            } else {
+              $(this).removeClass('active');
+            }
+            counter++;
+            console.log(counter)
+          } else {
+            $(this).removeClass('active');
+          }
         }
       });
     } else {

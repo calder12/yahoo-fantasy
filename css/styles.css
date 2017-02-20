@@ -72,3 +72,11 @@ td{
 .switch:hover{
   background-color:#888;
 }
+
+ .switch.active {
+  background-color: #013E7F;
+ }
+
+ .team-row.active {
+  font-weight: bold;
+ }
